@@ -1,24 +1,75 @@
-# vue-best-autocomplete
+# Vue Autocomplete Component
 
-## Project setup
-```
-yarn install
-```
+A Vue.js component for autocomplete functionality in input fields.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Installation
 
-### Compiles and minifies for production
+You can install the package via npm:
+Copy code
+
 ```
-yarn build
+npm install @np011/vue-autocomplete-component
 ```
 
-### Lints and fixes files
+## Usage
+
+Basic Usage
+Copy code
+
 ```
-yarn lint
+<template>
+  <autocomplete :items="addressList" @selected="handleSelected"></autocomplete>
+</template>
+
+<script>
+import Autocomplete from 'vue-autocomplete-component';
+
+export default {
+  components: {
+    Autocomplete,
+  },
+  data() {
+    return {
+      addressList: [
+        { id: 1, title: 'New York, USA' },
+        { id: 2, title: 'London, UK' },
+        // Add more address objects as needed
+      ],
+    };
+  },
+  methods: {
+    handleSelected(address) {
+      console.log('Selected address:', address);
+      // Handle selected address
+    },
+  },
+};
+</script>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Props
+
+- `items` (Array): An array of objects representing the autocomplete options. Each object should have at least an id and title property.
+
+### Events
+
+- `selected`: Triggered when an option is selected. Emits the selected option object.
+
+### Customization
+
+You can customize the appearance of the autocomplete input and suggestions by overriding the CSS classes provided by the component.
+
+### CSS Classes
+
+- `.input-wrapper`: Wrapper class for the input field.
+- `.data-input-success`: Class applied when input is successful.
+- `.base-input-error`: Class applied when there's an error in input.
+- `.suggestion-list-active`: Class applied to the suggestion list when active.
+
+#### Example
+
+You can customize the appearance by overriding these CSS classes in your project's stylesheet.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
