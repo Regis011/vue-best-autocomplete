@@ -72,4 +72,4 @@ You can customize the appearance by overriding these CSS classes in your project
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU License - see the [LICENSE](https://github.com/Regis011/vue-best-autocomplete/blob/main/LICENSE) file for details.
