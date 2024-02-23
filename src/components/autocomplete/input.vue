@@ -12,7 +12,7 @@
       role="combobox"
       aria-expanded="true"
       :aria-activedescendant="query"
-      placeholder="Skriv din adress här"
+      placeholder="Enter your address here"
       id="input-autocomplete"
     />
     <ul v-if="showResults" role="listbox">
@@ -35,6 +35,7 @@
 
 <script>
 export default {
+  name: 'Autocomplete',
   props: {
     items: {
       type: Array,
@@ -157,7 +158,7 @@ export default {
 
   &.data-input-success {
     > input {
-      border-bottom: 3px solid var(--green);
+      border-bottom: 3px solid #77dd77;
       position: relative;
     }
     &::after {
@@ -170,8 +171,8 @@ export default {
 
   &.base-input-error {
     border-radius: 12px;
-    border-bottom: 3px solid var(--red);
-    background-color: var(--white);
+    border-bottom: 3px solid #c33;
+    background-color: white;
     &::after {
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTEiIGZpbGw9IiNGRDU0NTciLz4KPHBhdGggZD0iTTEyIDYuNzVWMTMuNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0iYmV2ZWwiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxNi44NzUiIHI9IjEuMTI1IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
       position: absolute;
@@ -184,7 +185,7 @@ export default {
     > input {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      border-bottom: 2px solid var(--black);
+      border-bottom: 2px solid black;
     }
   }
 
@@ -193,13 +194,14 @@ export default {
     left: 0;
     right: 0;
     top: 100%;
-    background-color: var(--white);
+    background-color: white;
     opacity: 1;
     z-index: 10;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    @include font(3, 'medium');
+    font-size: 2rem;
+    line-height: 2.4rem;
 
     border-bottom-right-radius: 24px;
     border-bottom-left-radius: 24px;
@@ -212,7 +214,7 @@ export default {
       &:hover,
       &:focus,
       &.active-option {
-        background-color: var(--light-blue);
+        background-color: #aec6cf;
       }
     }
   }
