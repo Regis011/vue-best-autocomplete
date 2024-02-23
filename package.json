@@ -1,10 +1,17 @@
 {
-  "name": "vue-best-autocomplete",
+  "name": "@np011/vue-best-autocomplete",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/VueBestAutocomplete.common.js",
+  "files": [
+    "dist/*",
+    "*.js",
+    "*.json"
+  ],
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name VueBestAutocomplete ./src/components/autocomplete/input.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -17,8 +24,12 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-standard": "^8.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^14.1.1"
   },
   "eslintConfig": {
     "root": true,
