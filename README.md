@@ -22,7 +22,11 @@ Copy code
 </template>
 
 <script>
+/*
+* Include Component and style
+*/
 import Autocomplete from 'vue-best-autocomplete'
+import 'vue-best-autocomplete/dist/Autocomplete.css'
 
 export default {
   components: {
