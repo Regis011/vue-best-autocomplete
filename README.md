@@ -8,7 +8,7 @@ You can install the package via npm:
 Copy code
 
 ```
-npm install vue-autocomplete-component
+npm install vue-best-autocomplete
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ Copy code
 </template>
 
 <script>
-import Autocomplete from 'vue-autocomplete-component';
+import Autocomplete from 'vue-best-autocomplete'
 
 export default {
   components: {

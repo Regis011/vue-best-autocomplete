@@ -1,13 +1,19 @@
 {
   "name": "vue-best-autocomplete",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Simple Vue Autocomplete: Simplify user input with dynamic suggestions. Effortlessly integrate autocomplete functionality into your Vue.js projects.",
-  "main": "./dist/Autocomplete.common.js",
-  "files": [
-    "./dist/*",
-    "*.js",
-    "*.json"
+  "keywords": [
+    "vue",
+    "autocomplete",
+    "input",
+    "component",
+    "vue3",
+    "vue3-autocomplete",
+    "vue3-input",
+    "simple autocomplete"
   ],
+  "main": "./dist/Autocomplete.common.js",
+  "files": ["dist"],
   "private": false,
   "repository": {
     "type": "git",

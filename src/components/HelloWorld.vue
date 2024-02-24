@@ -8,6 +8,7 @@
         >vue-cli documentation</a
       >.
     </p>
+
     <h2>Autocomplete</h2>
     <Autocomplete :items="items"></Autocomplete>
 
@@ -90,7 +91,7 @@
 </template>
 
 <script>
-import Autocomplete from '../components/autocomplete/input.vue'
+import Autocomplete from 'vue-best-autocomplete'
 
 export default {
   name: 'HelloWorld',
