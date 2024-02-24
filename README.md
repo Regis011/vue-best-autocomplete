@@ -8,7 +8,7 @@ You can install the package via npm:
 Copy code
 
 ```
-npm install @np011/vue-autocomplete-component
+npm install vue-autocomplete-component
 ```
 
 ## Usage
