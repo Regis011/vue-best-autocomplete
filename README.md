@@ -1,79 +1,148 @@
-# Vue Autocomplete Component
+# Vue Best Autocomplete
 
-A Vue.js component for autocomplete functionality in input fields.
+A simple and flexible Vue 3 autocomplete component with keyboard navigation, visual states, and accessibility features.
+
+## Features
+
+✨ Real-time filtering as you type  
+⌨️ Keyboard navigation (Arrow keys, Enter, Escape)  
+🎨 Visual states (success, error)  
+♿ Accessible with ARIA attributes  
+🎯 Easy to customize  
 
 ## Installation
 
-You can install the package via npm:
-Copy code
-
-```
+```bash
 npm install vue-best-autocomplete
 ```
 
 ## Usage
 
-Basic Usage
-Copy code
+### Basic Example
 
-```
+```vue
 <template>
-  <autocomplete :items="addressList" @selected="handleSelected"></autocomplete>
+  <Autocomplete
+    :items="items"
+    :handleStyleState="state"
+    @change="handleChange"
+    @selected="handleSelected"
+  />
 </template>
 
 <script>
-/*
-* Include Component and style
-*/
 import Autocomplete from 'vue-best-autocomplete'
 import 'vue-best-autocomplete/dist/Autocomplete.css'
 
 export default {
   components: {
-    Autocomplete,
+    Autocomplete
   },
-  data() {
+  data () {
     return {
-      addressList: [
+      items: [
         { id: 1, title: 'New York, USA' },
         { id: 2, title: 'London, UK' },
-        // Add more address objects as needed
+        { id: 3, title: 'Paris, France' },
+        // Add more items as needed
       ],
-    };
+      state: {
+        success: false,
+        noSearchError: false,
+        chosenAddress: ''
+      }
+    }
   },
   methods: {
-    handleSelected(address) {
-      console.log('Selected address:', address);
-      // Handle selected address
+    handleChange (query) {
+      // Reset state on input change
+      this.state.success = false
+      this.state.chosenAddress = ''
     },
-  },
-};
+    handleSelected (item) {
+      console.log('Selected:', item)
+      // Update state to show success
+      this.state.success = true
+      this.state.chosenAddress = item.title
+    }
+  }
+}
 </script>
 ```
 
+## API
+
 ### Props
 
-- `items` (Array): An array of objects representing the autocomplete options. Each object should have at least an id and title property.
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `items` | Array | Yes | `[]` | Array of objects with `id` and `title` properties |
+| `handleStyleState` | Object | No | `{}` | Object controlling visual states (see below) |
+
+#### handleStyleState Object
+
+```javascript
+{
+  success: false,        // Shows success indicator (green border + checkmark)
+  noSearchError: false,  // Shows error indicator (red border + error icon)
+  chosenAddress: ''      // The selected value (used for success state)
+}
+```
 
 ### Events
 
-- `selected`: Triggered when an option is selected. Emits the selected option object.
+| Event | Payload | Description |
+|-------|---------|-------------|
+| `@change` | `String` | Emitted when input value changes. Returns the current query string |
+| `@selected` | `Object` | Emitted when an item is selected. Returns the selected item object |
 
-### Customization
-
-You can customize the appearance of the autocomplete input and suggestions by overriding the CSS classes provided by the component.
+## Customization
 
 ### CSS Classes
 
-- `.input-wrapper`: Wrapper class for the input field.
-- `.data-input-success`: Class applied when input is successful.
-- `.base-input-error`: Class applied when there's an error in input.
-- `.suggestion-list-active`: Class applied to the suggestion list when active.
+You can customize the appearance by overriding these CSS classes:
 
-#### Example
+| Class | Description |
+|-------|-------------|
+| `.input-wrapper` | Main wrapper for the input and suggestions |
+| `.data-input-success` | Applied when input is in success state |
+| `.base-input-error` | Applied when input has an error |
+| `.suggestion-list-active` | Applied when suggestions are visible |
+| `.active-option` | Applied to the currently highlighted option |
 
-You can customize the appearance by overriding these CSS classes in your project's stylesheet.
+### Example Customization
+
+```css
+/* Override input styles */
+.input-wrapper input {
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Customize suggestion list */
+.input-wrapper ul {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Customize active option */
+.input-wrapper li.active-option {
+  background-color: #4CAF50;
+  color: white;
+}
+```
+
+## Keyboard Navigation
+
+- **Arrow Down** - Move to next option
+- **Arrow Up** - Move to previous option
+- **Enter** - Select highlighted option
+- **Escape** - Close suggestions
+
+## Contributing
+
+Contributions are welcome! See [docs/DEVELOPMENT.md](./docs/DEVELOPMENT.md) for local development setup.
 
 ## License
 
-This project is licensed under the GNU License - see the [LICENSE](https://github.com/Regis011/vue-best-autocomplete/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Regis011/vue-best-autocomplete/blob/main/LICENSE) file for details.
