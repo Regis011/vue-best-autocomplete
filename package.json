@@ -1,6 +1,6 @@
 {
   "name": "vue-best-autocomplete",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple Vue Autocomplete: Simplify user input with dynamic suggestions. Effortlessly integrate autocomplete functionality into your Vue.js projects.",
   "keywords": [
     "vue",
@@ -68,5 +68,8 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "overrides": {
+    "body-parser": ">=1.20.3"
+  }
 }
